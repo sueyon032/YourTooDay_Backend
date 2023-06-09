@@ -21,4 +21,9 @@ public class YourtoodayService {
     public List<Article> findAll() {
         return yourtoodayRepository.findAll();
     }
+
+    public Article findById(long id) {
+        return yourtoodayRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+    }
 }
