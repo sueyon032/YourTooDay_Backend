@@ -43,4 +43,12 @@ public class YourtoodayApiController {
                 .body(new ArticleResponse(article));
     }
 
+    @DeleteMapping("/api/articles/{id}")
+    public ResponseEntity<Void> deleteArticle(@PathVariable long id){
+        yourtoodayService.delete(id);
+
+        return ResponseEntity.ok()
+                .build();
+    }
+
 }

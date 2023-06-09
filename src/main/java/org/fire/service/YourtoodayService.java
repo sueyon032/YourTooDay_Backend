@@ -26,4 +26,8 @@ public class YourtoodayService {
         return yourtoodayRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
     }
+
+    public void delete(long id){
+        yourtoodayRepository.deleteById(id);
+    }
 }
