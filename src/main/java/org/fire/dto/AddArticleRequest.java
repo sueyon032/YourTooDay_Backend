@@ -9,6 +9,8 @@ import org.fire.domain.Article;
 @AllArgsConstructor
 @Getter
 public class AddArticleRequest {
+    private String diaryName;
+    private String keyword;
     private String title;
     private String content;
     private String author;
@@ -16,6 +18,8 @@ public class AddArticleRequest {
 
     public Article toEntity(){
         return Article.builder()
+                .diaryName(diaryName)
+                .keyword(keyword)
                 .title(title)
                 .content(content)
                 .author(author)
