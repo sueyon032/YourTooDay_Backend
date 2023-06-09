@@ -6,6 +6,8 @@ import org.fire.dto.AddArticleRequest;
 import org.fire.repository.YourtoodayRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class YourtoodayService {
@@ -14,5 +16,9 @@ public class YourtoodayService {
 
     public Article save(AddArticleRequest request){
         return yourtoodayRepository.save(request.toEntity());
+    }
+
+    public List<Article> findAll() {
+        return yourtoodayRepository.findAll();
     }
 }

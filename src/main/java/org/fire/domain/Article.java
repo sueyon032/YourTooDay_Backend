@@ -16,6 +16,14 @@ public class Article {
     @Column(name = "article_no", updatable = false)
     private Long articleNo; // 기본키
 
+
+    @Column(name = "diary_name", nullable = false)
+    private String diaryName; // 일기장 이름
+
+    @Column(name = "keyword", nullable = false)
+    private String keyword; // 일기장 키워드
+
+
     @Column(name = "title", nullable = false)
     private String title; // 일기 제목
 
@@ -28,11 +36,17 @@ public class Article {
     @Column(name = "date", nullable = false)
     private String date; // 일기 작성 날짜
 
+    @Column(name = "comment", nullable = false)
+    private String comment; // 일기 댓글
+
     @Builder
-    public Article(String title, String content, String author, String date) {
+    public Article(String diaryName, String keyword, String title, String content, String author, String date, String comment) {
+        this.diaryName = diaryName;
+        this.keyword = keyword;
         this.title = title;
         this.content = content;
         this.author = author;
         this.date = date;
+        this.comment = comment;
     }
 }
