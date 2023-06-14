@@ -12,23 +12,23 @@ import lombok.NoArgsConstructor;
 public class Diary_cover {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "diary_no", updatable = false)
-    private Long diary_No; // 기본키
+    @Column(name = "diary_cover_no", updatable = false)
+    private Long diaryCoverNo; // 기본키
 
 
-    @Column(name = "diaryname", nullable = false)
-    private String diaryname; // 일기장 이름
+    @Column(name = "diary_name", nullable = false)
+    private String diaryCoverName; // 일기장 이름
 
-    @Column(name = "keyword", nullable = false)
-    private String keyword; // 일기장 키워드
+    @Column(name = "diary_keyword", nullable = false)
+    private String diaryCoverKeyword; // 일기장 키워드
 
-    @Column(name = "subscribe", nullable = false)
-    private String subscribe; // 일기장 키워드
+    @Column(name = "diary_subscribe", nullable = false)
+    private String diaryCoverSubscribe; // 일기장 키워드
 
     @Builder
-    public Diary_cover(String diaryname, String keyword, String subscribe) {
-        this.diaryname = diaryname;
-        this.keyword = keyword;
-        this.subscribe=subscribe;
+    public Diary_cover(String diaryCoverName, String diaryCoverKeyword, String diaryCoverSubscribe) {
+        this.diaryCoverName = diaryCoverName;
+        this.diaryCoverKeyword = diaryCoverKeyword;
+        this.diaryCoverSubscribe=diaryCoverSubscribe;
     }
 }
