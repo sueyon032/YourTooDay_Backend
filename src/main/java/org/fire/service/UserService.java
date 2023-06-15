@@ -1,8 +1,10 @@
 package org.fire.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.fire.domain.User;
 import org.fire.dto.AddUserRequest;
+import org.fire.dto.UpdateUserRequest;
 import org.fire.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +31,15 @@ public class UserService {
 
     public void delete(long id) {
         userRepository.deleteById(id);
+    }
+
+    @Transactional
+    public User update(long id, UpdateUserRequest request) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+
+        user.update(request.getUserPw(), request.getUserName(), request.getUserEmail());
+
+        return user;
     }
 }

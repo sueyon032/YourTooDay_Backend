@@ -3,6 +3,7 @@ package org.fire.controller;
 import lombok.RequiredArgsConstructor;
 import org.fire.domain.User;
 import org.fire.dto.AddUserRequest;
+import org.fire.dto.UpdateUserRequest;
 import org.fire.dto.UserResponse;
 import org.fire.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -49,5 +50,14 @@ public class UserApiController {
 
         return ResponseEntity.ok()
                 .build();
+    }
+
+    @PutMapping("/api/users/{id}") // 유저 정보 변경 (userId 제외)
+    public ResponseEntity<User> updateUser(@PathVariable long id,
+                                           @RequestBody UpdateUserRequest request) {
+        User updatedUser = userService.update(id, request);
+
+        return ResponseEntity.ok()
+                .body(updatedUser);
     }
 }
