@@ -35,11 +35,19 @@ public class UserApiController {
                 .body(users);
     }
 
-    @GetMapping("/api/users/{id}")
+    @GetMapping("/api/users/{id}") // 유저 단건 조회
     public ResponseEntity<UserResponse> findUser(@PathVariable long id) {
         User user = userService.findById(id);
 
         return ResponseEntity.ok()
                 .body(new UserResponse(user));
+    }
+
+    @DeleteMapping("/api/users/{id}") // 유저 삭제
+    public ResponseEntity<Void> deleteUser(@PathVariable long id) {
+        userService.delete(id);
+
+        return ResponseEntity.ok()
+                .build();
     }
 }
