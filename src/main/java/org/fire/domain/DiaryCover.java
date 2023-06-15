@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Diary_cover {
+public class DiaryCover {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "diary_cover_no", updatable = false)
@@ -23,10 +23,10 @@ public class Diary_cover {
     private String diaryCoverKeyword; // 일기장 키워드
 
     @Column(name = "diary_subscribe", nullable = false)
-    private String diaryCoverSubscribe; // 일기장 키워드
+    private boolean diaryCoverSubscribe; // 일기장 구독
 
     @Builder
-    public Diary_cover(String diaryCoverName, String diaryCoverKeyword, String diaryCoverSubscribe) {
+    public DiaryCover(String diaryCoverName, String diaryCoverKeyword, boolean diaryCoverSubscribe) {
         this.diaryCoverName = diaryCoverName;
         this.diaryCoverKeyword = diaryCoverKeyword;
         this.diaryCoverSubscribe=diaryCoverSubscribe;
