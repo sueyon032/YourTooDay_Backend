@@ -17,7 +17,7 @@ public class DiaryCoverApiController {
 
     private final DiaryCoverService diaryCoverService;
 
-    @PostMapping("/api/diary-cover/{id}")
+    @PostMapping("/api/diary-cover")    // 다이어리 생성
     public ResponseEntity<DiaryCover> addDiaryCover(@RequestBody AddDiaryCoverRequest request){
         DiaryCover savedDiaryCover = diaryCoverService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED)
