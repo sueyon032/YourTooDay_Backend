@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "users")
 public class DiaryCover {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
