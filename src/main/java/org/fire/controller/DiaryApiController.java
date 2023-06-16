@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.fire.domain.Diary;
 import org.fire.dto.AddDiaryRequest;
 import org.fire.dto.DiaryResponse;
+import org.fire.dto.UpdateDiaryRequest;
 import org.fire.repository.DiaryRepository;
 import org.fire.service.DiaryService;
 import org.springframework.http.HttpStatus;
@@ -38,7 +39,7 @@ public class DiaryApiController {
     }
 
     @GetMapping("/api/diaries/{id}") // 일기 건별 조회
-    public ResponseEntity<DiaryResponse> findDiaries(@PathVariable long id) {
+    public ResponseEntity<DiaryResponse> findDiary(@PathVariable long id) {
         Diary diary = diaryService.findById(id);
 
         return ResponseEntity.ok()
@@ -46,10 +47,19 @@ public class DiaryApiController {
     }
 
     @DeleteMapping("/api/diaries/{id}") // 일기 삭제
-    public ResponseEntity<Void> deleteDiaries(@PathVariable long id) {
+    public ResponseEntity<Void> deleteDiary(@PathVariable long id) {
         diaryService.delete(id);
 
         return ResponseEntity.ok()
                 .build();
+    }
+
+    @PutMapping("/api/diaries/{id}")
+    public ResponseEntity<Diary> updateDiary(@PathVariable long id,
+                                             @RequestBody UpdateDiaryRequest request) {
+        Diary updatedDiary = diaryService.update(id, request);
+
+        return ResponseEntity.ok()
+                .body(updatedDiary);
     }
 }

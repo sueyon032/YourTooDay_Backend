@@ -22,7 +22,7 @@ public class Diary {
     private String diaryContent; // 일기 내용
 
     @Column(name = "diary_sympathy ", nullable = false)
-    private String diarySympathy; // 일기 작성 날짜
+    private String diarySympathy; // 일기 공감
 
     @Column(name = "diary_date", nullable = false)
     private String diaryDate; // 일기 작성 날짜
@@ -36,6 +36,13 @@ public class Diary {
         this.diaryContent = diaryContent;
         this.diarySympathy=diarySympathy;
         this.diaryDate = diaryDate;
+        this.diaryComment = diaryComment;
+    }
+
+    public void update(String diaryTitle, String diaryContent, String diarySympathy, String diaryComment) {
+        this.diaryTitle = diaryTitle;
+        this.diaryContent =  diaryContent;
+        this.diarySympathy = diarySympathy;
         this.diaryComment = diaryComment;
     }
 }
