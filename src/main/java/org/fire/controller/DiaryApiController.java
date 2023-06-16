@@ -44,4 +44,12 @@ public class DiaryApiController {
         return ResponseEntity.ok()
                 .body(new DiaryResponse(diary));
     }
+
+    @DeleteMapping("/api/diaries/{id}") // 일기 삭제
+    public ResponseEntity<Void> deleteDiaries(@PathVariable long id) {
+        diaryService.delete(id);
+
+        return ResponseEntity.ok()
+                .build();
+    }
 }

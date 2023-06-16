@@ -26,4 +26,8 @@ public class DiaryService {
         return diaryRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
     }
+
+    public void delete(long id) {
+        diaryRepository.deleteById(id);
+    }
 }
