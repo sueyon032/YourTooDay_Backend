@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "users")
 public class DiaryCover {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,5 +30,10 @@ public class DiaryCover {
         this.diaryCoverName = diaryCoverName;
         this.diaryCoverKeyword = diaryCoverKeyword;
         this.diaryCoverSubscribe=diaryCoverSubscribe;
+    }
+
+    public void update(String diaryCoverName, String diaryCoverKeyword){
+        this.diaryCoverName=diaryCoverName;
+        this.diaryCoverKeyword=diaryCoverKeyword;
     }
 }
