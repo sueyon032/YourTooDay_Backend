@@ -24,7 +24,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User findById(long id) { // 기본키 userNo가 들어옴
+    public User findById(long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
     }
