@@ -1,11 +1,15 @@
 package org.fire.service;
 
+import lombok.RequiredArgsConstructor;
 import org.fire.domain.Sympathy;
 import org.fire.dto.AddSympathyRequest;
 import org.fire.repository.SympathyRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@RequiredArgsConstructor
+@Service
 public class SympathyService {
 
     SympathyRepository sympathyRepository;
