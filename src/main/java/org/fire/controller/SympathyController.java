@@ -25,11 +25,10 @@ public class SympathyController {
                         .build();
             }
         }
-<<<<<<< HEAD
+
         Sympathy savedSympathy = sympathyService.save(request);
-=======
         Sympathy savedSympahty = sympathyService.save(request); // 중복으로 남기는 게 아닐시에는 정상적으로 저장
->>>>>>> upstream/main
+
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedSympathy);
     }
