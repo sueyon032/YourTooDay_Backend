@@ -25,9 +25,9 @@ public class SympathyController {
                         .build();
             }
         }
-        Sympathy savedSympahty = sympathyService.save(request);
+        Sympathy savedSympathy = sympathyService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(savedSympahty);
+                .body(savedSympathy);
     }
 
     @GetMapping("/api/sympathy/by-user/{userNo}")
