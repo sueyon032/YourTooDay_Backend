@@ -21,10 +21,10 @@ public class Sympathy {
     private Integer sympathyKind;
 
     @Column(name = "user_no", updatable = false)
-    private Long userNo;
+    private Long userNo;    // User클래스에서 diaryNo를 받아야함
 
     @Column(name = "diary_no", updatable = false)
-    private Long diaryNo;
+    private Long diaryNo;   // Diary클래스에서 diaryNo를 받아야함
 
     @Builder
     public Sympathy(Integer sympathyKind, Long userNo, Long diaryNo) {
