@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class SympathyService {
 
-    SympathyRepository sympathyRepository;
+    private final SympathyRepository sympathyRepository;
 
     public Sympathy save(AddSympathyRequest request) {
         return sympathyRepository.save(request.toEntity());
