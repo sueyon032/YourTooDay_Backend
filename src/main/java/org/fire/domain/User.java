@@ -27,7 +27,7 @@ public class User {
     private String userName; // 유저 이름(닉네임)
 
     @Column(name = "user_email", nullable = false)
-    private String userEmail;
+    private String userEmail; // 유저 이메일
 
     @Builder
     public User(String userId, String userPw, String userName, String userEmail) {
@@ -37,6 +37,7 @@ public class User {
         this.userEmail = userEmail;
     }
 
+    // userId값은 수정이 불가하도록 제외
     public void update(String userPw, String userName, String userEmail) {
         this.userPw = userPw;
         this.userName = userName;

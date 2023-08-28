@@ -19,6 +19,7 @@ public class DiaryApiController {
 
     private final DiaryService diaryService;
 
+    // POST 요청을 받아 새로운 일기를 추가
     @PostMapping("/api/diaries")
     public ResponseEntity<Diary> addDiary(@RequestBody AddDiaryRequest request) {
         Diary savedDiary = diaryService.save(request);
@@ -27,7 +28,8 @@ public class DiaryApiController {
                 .body(savedDiary);
     }
 
-    @GetMapping("/api/diaries") // 일기 전체 조회
+    // GET 요청을 받아 일기 전체를 조회
+    @GetMapping("/api/diaries")
     public ResponseEntity<List<DiaryResponse>> findAllDiaries() {
         List<DiaryResponse> diaries = diaryService.findAll()
                 .stream()
@@ -38,7 +40,8 @@ public class DiaryApiController {
                 .body(diaries);
     }
 
-    @GetMapping("/api/diaries/{id}") // 일기 건별 조회
+    // GET 요청을 받아 일기를 건별로 조회
+    @GetMapping("/api/diaries/{id}")
     public ResponseEntity<DiaryResponse> findDiary(@PathVariable long id) {
         Diary diary = diaryService.findById(id);
 
@@ -46,7 +49,8 @@ public class DiaryApiController {
                 .body(new DiaryResponse(diary));
     }
 
-    @DeleteMapping("/api/diaries/{id}") // 일기 삭제
+    // DELETE 요청을 받아 일기를 건별로 삭제
+    @DeleteMapping("/api/diaries/{id}")
     public ResponseEntity<Void> deleteDiary(@PathVariable long id) {
         diaryService.delete(id);
 
@@ -54,6 +58,7 @@ public class DiaryApiController {
                 .build();
     }
 
+    // PUT 요청을 받아 일기를 건별로 수정(업데이트)
     @PutMapping("/api/diaries/{id}")
     public ResponseEntity<Diary> updateDiary(@PathVariable long id,
                                              @RequestBody UpdateDiaryRequest request) {
