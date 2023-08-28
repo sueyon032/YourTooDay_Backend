@@ -30,10 +30,13 @@ public class SympathyController {
                 .body(savedSympahty);
     }
 
+    // 해당 유저가 남긴 공감을 조회
     @GetMapping("/api/sympathy/by-user/{userNo}") // userNo에 해당하는 공감 정보 조회
     public ResponseEntity<List<SympathyResponse>> findAllSympathyByUser(@PathVariable int userNo) {
         List<SympathyResponse> sympathy = sympathyService.findAll()
                 .stream()
+                // 해당 유저에게 '남겨진' 공감 정보를 조회하는 기능으로 수정한 코드
+                // .filter(s -> s.getDiaryNo() == userNo)
                 .filter(s -> s.getUserNo() == userNo) // userNo와 일치하는 공감 정보만 가져올 수 있도록 필터링
                 .map(SympathyResponse::new)
                 // 공감 정보를 전달하기 위한 DTO 클래스인 SympathyResponse의 객체 형태로 변환
