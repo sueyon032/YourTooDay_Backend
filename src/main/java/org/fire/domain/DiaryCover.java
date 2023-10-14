@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -14,7 +16,6 @@ public class DiaryCover {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "diary_cover_no", updatable = false)
     private Long diaryCoverNo; // 기본키
-
 
     @Column(name = "diary_name", nullable = false)
     private String diaryCoverName; // 일기장 이름
@@ -27,6 +28,10 @@ public class DiaryCover {
 
     @Column(name = "writer_no", nullable = false)
     private Long writerNo; // 일기장 작성자 (만든 사람)
+
+    @OneToMany
+    @JoinColumn(name = "diary_cover_no")
+    private List<Diary> diaries;
 
     @Builder
     public DiaryCover(String diaryCoverName, String diaryCoverKeyword, boolean diaryCoverSubscribe, String diaryCoverImage, Long writerNo) {

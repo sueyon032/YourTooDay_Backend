@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -21,28 +23,22 @@ public class Diary {
     @Column(name = "diary_content", nullable = false)
     private String diaryContent; // 일기 내용
 
-    @Column(name = "diary_sympathy ", nullable = false)
-    private String diarySympathy; // 일기 공감
-
     @Column(name = "diary_date", nullable = false)
-    private String diaryDate; // 일기 작성 날짜
+    private LocalDate diaryDate = LocalDate.now(); // 일기 작성 날짜
 
-    @Column(name = "diary_comment", nullable = false)
-    private String diaryComment; // 일기 댓글
+    // (diarycover와 diary의 일대다 관계를 위한) diaryCoverNo 필드 추가
+    @Column(name = "diary_cover_no", nullable = false)
+    private Long diaryCoverNo;
 
     @Builder
-    public Diary(String diaryTitle, String diaryContent, String diarySympathy, String diaryDate, String diaryComment) {
+    public Diary(String diaryTitle, String diaryContent, Long diaryCoverNo) {
         this.diaryTitle = diaryTitle;
         this.diaryContent = diaryContent;
-        this.diarySympathy=diarySympathy;
-        this.diaryDate = diaryDate;
-        this.diaryComment = diaryComment;
+        this.diaryCoverNo = diaryCoverNo;
     }
 
-    public void update(String diaryTitle, String diaryContent, String diarySympathy, String diaryComment) {
+    public void update(String diaryTitle, String diaryContent) {
         this.diaryTitle = diaryTitle;
         this.diaryContent =  diaryContent;
-        this.diarySympathy = diarySympathy;
-        this.diaryComment = diaryComment;
     }
 }

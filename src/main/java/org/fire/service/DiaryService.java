@@ -38,7 +38,7 @@ public class DiaryService {
         Diary diary = diaryRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
 
-        diary.update(request.getDiaryTitle(), request.getDiaryContent(), request.getDiarySympathy(), request.getDiaryComment());
+        diary.update(request.getDiaryTitle(), request.getDiaryContent());
 
         return diary;
     }

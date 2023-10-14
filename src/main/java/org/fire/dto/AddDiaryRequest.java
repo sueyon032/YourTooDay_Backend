@@ -12,17 +12,13 @@ public class AddDiaryRequest {
 
     private String diaryTitle;
     private String diaryContent;
-    private String diarySympathy;
-    private String diaryDate;
-    private String diaryComment;
+    private Long diaryCoverNo;
 
     public Diary toEntity() {
         return Diary.builder()
                 .diaryTitle(diaryTitle)
                 .diaryContent(diaryContent)
-                .diarySympathy(diarySympathy)
-                .diaryDate(diaryDate)
-                .diaryComment(diaryComment)
+                .diaryCoverNo(diaryCoverNo)
                 .build();
     }
 }

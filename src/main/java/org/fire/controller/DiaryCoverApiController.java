@@ -35,12 +35,13 @@ public class DiaryCoverApiController {
                 .body(diaryCovers);
     }
 
+    // diarycover detail
     @GetMapping("/api/diary-covers/{id}")
-    public ResponseEntity<DiaryCoverResponse> findDiaryCover(@PathVariable long id){
+    public ResponseEntity<DiaryCoverDetailResponse> findDiaryCover(@PathVariable long id){
         DiaryCover diaryCover= diaryCoverService.findById(id);
 
         return ResponseEntity.ok()
-                .body(new DiaryCoverResponse(diaryCover));
+                .body(new DiaryCoverDetailResponse(diaryCover));
     }
 
     @DeleteMapping("/api/diary-covers/{id}")
