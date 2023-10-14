@@ -17,14 +17,14 @@ public class DiaryCoverApiController {
 
     private final DiaryCoverService diaryCoverService;
 
-    @PostMapping("/api/diary-cover")    // 다이어리 생성
+    @PostMapping("/api/diary-covers")    // 다이어리 생성
     public ResponseEntity<DiaryCover> addDiaryCover(@RequestBody AddDiaryCoverRequest request){
         DiaryCover savedDiaryCover = diaryCoverService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedDiaryCover);
     }
 
-    @GetMapping("/api/diary-cover") // 다이어리 전체 조회
+    @GetMapping("/api/diary-covers") // 다이어리 전체 조회
     public ResponseEntity<List<DiaryCoverResponse>> findAllDiaryCover(){
         List<DiaryCoverResponse> diaryCovers= diaryCoverService.findAll()
                 .stream()
@@ -35,7 +35,7 @@ public class DiaryCoverApiController {
                 .body(diaryCovers);
     }
 
-    @GetMapping("/api/diary-cover/{id}")
+    @GetMapping("/api/diary-covers/{id}")
     public ResponseEntity<DiaryCoverResponse> findDiaryCover(@PathVariable long id){
         DiaryCover diaryCover= diaryCoverService.findById(id);
 
@@ -43,7 +43,7 @@ public class DiaryCoverApiController {
                 .body(new DiaryCoverResponse(diaryCover));
     }
 
-    @DeleteMapping("/api/diary-cover/{id}")
+    @DeleteMapping("/api/diary-covers/{id}")
     public ResponseEntity<Void> deleteDiaaryCover(@PathVariable long id){
         diaryCoverService.delete(id);
 
@@ -51,7 +51,7 @@ public class DiaryCoverApiController {
                 .build();
     }
 
-    @PutMapping("/api/diary-cover/{id}")
+    @PutMapping("/api/diary-covers/{id}")
     public ResponseEntity<DiaryCover> updateDiaryCover(@PathVariable long id,
                                                        @RequestBody UpdateDiaryCoverRequest request){
         DiaryCover updateDiaryCover= diaryCoverService.update(id, request);
