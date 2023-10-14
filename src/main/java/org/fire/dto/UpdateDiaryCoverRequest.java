@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class UpdateDiaryCoverRequest {
     private String diaryCoverName;
     private String diaryCoverKeyword;
+    private String diaryCoverImage;
 }

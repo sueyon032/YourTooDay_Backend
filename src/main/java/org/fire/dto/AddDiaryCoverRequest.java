@@ -12,13 +12,15 @@ public class AddDiaryCoverRequest {
 
     private String diaryCoverName;
     private String diaryCoverKeyword;
-    private boolean diaryCoverSubscribe;
+    private String diaryCoverImage;
+    private Long writerNo;
 
     public DiaryCover toEntity(){
         return DiaryCover.builder()
                 .diaryCoverName(diaryCoverName)
                 .diaryCoverKeyword(diaryCoverKeyword)
-                .diaryCoverSubscribe(diaryCoverSubscribe)
+                .diaryCoverImage(diaryCoverImage)
+                .writerNo(writerNo)
                 .build();
     }
 }

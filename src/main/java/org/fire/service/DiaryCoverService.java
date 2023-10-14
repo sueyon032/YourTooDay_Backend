@@ -38,7 +38,7 @@ public class DiaryCoverService {
         DiaryCover diaryCover= diaryCoverRepository.findById(id)
                 .orElseThrow(()-> new IllegalArgumentException("not found: " + id));
 
-        diaryCover.update(request.getDiaryCoverName(), request.getDiaryCoverKeyword());
+        diaryCover.update(request.getDiaryCoverName(), request.getDiaryCoverKeyword(), request.getDiaryCoverImage());
 
         return diaryCover;
     }
