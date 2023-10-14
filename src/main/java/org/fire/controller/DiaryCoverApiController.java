@@ -44,7 +44,7 @@ public class DiaryCoverApiController {
     }
 
     @DeleteMapping("/api/diary-covers/{id}")
-    public ResponseEntity<Void> deleteDiaaryCover(@PathVariable long id){
+    public ResponseEntity<Void> deleteDiaryCover(@PathVariable long id){
         diaryCoverService.delete(id);
 
         return ResponseEntity.ok()
