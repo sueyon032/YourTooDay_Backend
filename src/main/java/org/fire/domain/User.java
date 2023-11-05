@@ -29,12 +29,17 @@ public class User {
     @Column(name = "user_email", nullable = false)
     private String userEmail; // 유저 이메일
 
+    // 카카오 로그인
+    @Column(name = "kakao_id", nullable = false)
+    private Long kakaoId; // 카카오 유저 아이디
+
     @Builder
-    public User(String userId, String userPw, String userName, String userEmail) {
+    public User(String userId, String userPw, String userName, String userEmail, Long kakaoId) {
         this.userId = userId;
         this.userPw = userPw;
         this.userName = userName;
         this.userEmail = userEmail;
+        this.kakaoId = kakaoId;
     }
 
     // userId값은 수정이 불가하도록 제외
