@@ -22,10 +22,16 @@ public class SympathyService {
         return sympathyRepository.findAll();
     }
 
-    public Sympathy findById(long id){
+    public Sympathy findById(long id) {
         return sympathyRepository.findById(id)
-                .orElseThrow(()-> new IllegalArgumentException("not found: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
     }
+
+    /* public Sympathy findByDiaryNo(long id){
+            return sympathyRepository.findAllByDiaryNo(id)
+                    .orElseThrow(()-> new IllegalArgumentException("not found: " + id));
+    } */
+
     public void delete(long id) {
         sympathyRepository.deleteById(id);
     }
