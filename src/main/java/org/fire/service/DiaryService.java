@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.fire.domain.Diary;
 import org.fire.dto.AddDiaryRequest;
+import org.fire.dto.DiaryDetailResponse;
 import org.fire.dto.UpdateDiaryRequest;
 import org.fire.repository.DiaryRepository;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,7 @@ public class DiaryService {
         return diaryRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
     }
+
 
     // delete(long id): 주어진 id에 해당하는 일기를 삭제하는 메서드
     // diaryRepository.deleteById(id)를 호출하여 해당 id를 가지는 일기를 삭제함
