@@ -14,6 +14,7 @@ public class AddUserRequest {
     private String userPw;
     private String userName;
     private String userEmail;
+    private Long kakaoId;
 
     public User toEntity() {
         return User.builder()
@@ -21,6 +22,7 @@ public class AddUserRequest {
                 .userPw(userPw)
                 .userName(userName)
                 .userEmail(userEmail)
+                .kakaoId(kakaoId)
                 .build();
     }
 }

@@ -35,7 +35,7 @@ public class DiaryCoverApiController {
                 .body(diaryCovers);
     }
 
-    // diarycover detail
+    // 다이어리 커버 상세정보 Get
     @GetMapping("/api/diary-covers/{id}")
     public ResponseEntity<DiaryCoverDetailResponse> findDiaryCover(@PathVariable long id){
         DiaryCover diaryCover= diaryCoverService.findById(id);

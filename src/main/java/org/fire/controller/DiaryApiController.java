@@ -2,9 +2,8 @@ package org.fire.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.fire.domain.Diary;
-import org.fire.dto.AddDiaryRequest;
-import org.fire.dto.DiaryResponse;
-import org.fire.dto.UpdateDiaryRequest;
+import org.fire.domain.DiaryCover;
+import org.fire.dto.*;
 import org.fire.repository.DiaryRepository;
 import org.fire.service.DiaryService;
 import org.springframework.http.HttpStatus;
@@ -50,12 +49,21 @@ public class DiaryApiController {
     // GET 요청을 받아 일기를 건별로 조회
     // 해당 ID의 일기를 diaryService.findById(id)로 조회한 후
     // DiaryResponse로 변환하여 반환
-    @GetMapping("/api/diaries/{id}")
+    /* @GetMapping("/api/diaries/{id}")
     public ResponseEntity<DiaryResponse> findDiary(@PathVariable long id) {
         Diary diary = diaryService.findById(id);
 
         return ResponseEntity.ok()
                 .body(new DiaryResponse(diary));
+    } */
+
+    // DiaryDetailResponse로 변한하여 반환 (일기 보기 화면)
+    @GetMapping("/api/diaries/{id}")
+    public ResponseEntity<DiaryDetailResponse> findDiary(@PathVariable long id){
+        Diary diary = diaryService.findById(id);
+
+        return ResponseEntity.ok()
+                .body(new DiaryDetailResponse(diary));
     }
 
     // DELETE 요청을 받아 일기를 건별로 삭제
