@@ -25,9 +25,12 @@ public class SympathyController {
                         .build();
             }
         }
+
+        Sympathy savedSympathy = sympathyService.save(request);
         Sympathy savedSympahty = sympathyService.save(request); // 중복으로 남기는 게 아닐시에는 정상적으로 저장
+
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(savedSympahty);
+                .body(savedSympathy);
     }
 
     // 해당 유저가 남긴 공감을 조회
