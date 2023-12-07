@@ -6,8 +6,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+//<<<<<<< feature/diary-cover
+//=======
 import java.util.List;
 
+//>>>>>>> main
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -17,6 +20,10 @@ public class DiaryCover {
     @Column(name = "diary_cover_no", updatable = false)
     private Long diaryCoverNo; // 기본키
 
+//<<<<<<< feature/diary-cover
+
+//=======
+//>>>>>>> main
     @Column(name = "diary_name", nullable = false)
     private String diaryCoverName; // 일기장 이름
 
@@ -29,11 +36,14 @@ public class DiaryCover {
     @Column(name = "writer_no", nullable = false)
     private Long writerNo; // 일기장 작성자 (만든 사람)
 
+//<<<<<<< feature/diary-cover
+//=======
     // 하나의 DiaryCover가 여러 개의 Diary 엔티티를 가질 수 있음
     @OneToMany
     @JoinColumn(name = "diary_cover_no")
     private List<Diary> diaries;
 
+//>>>>>>> main
     @Builder
     public DiaryCover(String diaryCoverName, String diaryCoverKeyword, boolean diaryCoverSubscribe, String diaryCoverImage, Long writerNo) {
         this.diaryCoverName = diaryCoverName;
