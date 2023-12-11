@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 // 클라이언트의 API 요청을 처리하고, 해당 요청에 필요한 서비스 메서드(DiaryService 클래스에 있는)를 호출
 // 요청을 처리하고, 클라이언트에게 응답을 보내기 위해 DiaryResponse 클래스를 사용하여 데이터를 포장한 후 반환
@@ -65,6 +66,21 @@ public class DiaryApiController {
         return ResponseEntity.ok()
                 .body(new DiaryDetailResponse(diary));
     }
+
+    /* @GetMapping("/api/diaries/{diaryCoverNo}/{id}")
+    public ResponseEntity<DiaryDetailResponse> findDiary(
+            @PathVariable long diaryCoverNo,
+            @PathVariable long id) {
+        Optional<Diary> diaryOptional = diaryService.findByDiaryCoverAndId(diaryCoverNo, id);
+
+        if (diaryOptional.isPresent()) {
+            Diary diary = diaryOptional.get();
+            return ResponseEntity.ok().body(new DiaryDetailResponse(diary));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    } */
+
 
     // DELETE 요청을 받아 일기를 건별로 삭제
     @DeleteMapping("/api/diaries/{id}")
