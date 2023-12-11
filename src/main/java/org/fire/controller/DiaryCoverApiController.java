@@ -35,7 +35,7 @@ public class DiaryCoverApiController {
                 .body(diaryCovers);
     }
 
-    // 다이어리 커버 상세정보 Get
+    // 다이어리 커버 상세정보 (일기장 내부)
     @GetMapping("/api/diary-covers/{id}")
     public ResponseEntity<DiaryCoverDetailResponse> findDiaryCover(@PathVariable long id){
         DiaryCover diaryCover= diaryCoverService.findById(id);
@@ -59,5 +59,15 @@ public class DiaryCoverApiController {
 
         return ResponseEntity.ok()
                 .body(updateDiaryCover);
+    }
+
+    @GetMapping("/api/diary-covers/search")
+    public ResponseEntity<List<DiaryCoverResponse>> searchDiaryCovers(@RequestParam String keyword) {
+        List<DiaryCoverResponse> searchResults = diaryCoverService.findByKeyword(keyword)
+                .stream()
+                .map(DiaryCoverResponse::new)
+                .toList();
+
+        return ResponseEntity.ok().body(searchResults);
     }
 }

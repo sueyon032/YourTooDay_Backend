@@ -42,4 +42,8 @@ public class DiaryCoverService {
 
         return diaryCover;
     }
+
+    public List<DiaryCover> findByKeyword(String keyword) {
+        return diaryCoverRepository.findByDiaryCoverKeywordContainingIgnoreCase(keyword);
+    }
 }

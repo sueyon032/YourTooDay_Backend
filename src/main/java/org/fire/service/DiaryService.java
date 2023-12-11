@@ -10,6 +10,7 @@ import org.fire.repository.DiaryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 // 클라이언트로부터 받은 요청을 처리하기 위해 DiaryRepository를 사용하여 데이터베이스와 상호 작용
 // DiaryRepository를 사용하여 엔티티의 CRUD 작업을 수행하고 필요한 비즈니스 로직을 적용
@@ -61,4 +62,8 @@ public class DiaryService {
 
         return diary;
     }
+
+    /* public Optional<Diary> findByDiaryCoverAndId(long diaryCoverNo, long id) {
+        return diaryRepository.findByDiaryCoverNoAndId(diaryCoverNo, id);
+    } */
 }
